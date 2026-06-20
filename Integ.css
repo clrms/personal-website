@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(99, 0, 0);
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    padding: 28px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: rgb(251, 251, 118);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(251, 251, 118);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover {
+    color: rgb(0, 0, 0);
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.page {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 90px);
+    padding: 30px 20px;
+    font-family: "Playfair Display", serif;
+}
+
+.page.active {
+    display: flex;
+}
+
+.homeDescription,
+.aboutDescription,
+.educationDescription,
+.skillsDescription,
+.contactDescription {
+    background: rgb(38, 0, 0);
+    color: rgb(251, 251, 118);
+    width: min(1000px, 100%);
+    min-height: 500px;
+    padding: 48px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(251, 251, 118, 0.06) inset;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.image-container img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgb(251, 251, 118);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    display: block; /* changed */
+    transition: transform 0.3s ease;
+}
+
+#profileImg {
+    width: 175px;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgb(251, 251, 118);
+    display: block;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.greeting {
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(251, 251, 118, 0.7);
+    margin-bottom: 8px;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.role {
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    color: rgba(251, 251, 118, 0.75);
+    margin-bottom: 20px;
+}
+
+.role span {
+    font-style: italic;
+    font-weight: 600;
+}
+
+.divider {
+    width: 50px;
+    height: 2px;
+    background: rgba(251, 251, 118, 0.5);
+    margin: 20px auto;
+}
+
+.bio {
+    max-width: 500px;
+    margin: auto;
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: rgba(251, 251, 118, 0.7);
+}
+
+.aboutDescription h1,
+.educationDescription h1,
+.skillsDescription h1,
+.contactDescription h1 {
+    margin-bottom: 25px;
+}
+
+.aboutDescription p,
+.educationDescription p,
+.contactDescription p {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: rgba(251, 251, 118, 0.85);
+}
+
+.skillsDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skillsDescription ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.skillsDescription li {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    color: rgba(251, 251, 118, 0.85);
+    line-height: 1.4;
+    margin: 0;
+    padding: 2px 0;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        gap: 20px;
+    }
+
+    .name {
+        font-size: 30px;
+    }
+
+    .homeDescription,
+    .aboutDescription,
+    .educationDescription,
+    .skillsDescription,
+    .contactDescription {
+        padding: 30px;
+    }
+
+    .avatar-placeholder,
+    .image-container img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .aboutDescription p,
+    .educationDescription p,
+    .contactDescription p,
+    .skillsDescription li {
+        font-size: 16px;
+    }
+}

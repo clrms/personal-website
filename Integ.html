@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Website</title>
+
+  <link rel="stylesheet" href="integ.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#" onclick="showTab('homePage'); return false;">Home</a>
+      <a href="#" onclick="showTab('aboutPage'); return false;">About</a>
+      <a href="#" onclick="showTab('educationPage'); return false;">Education</a>
+      <a href="#" onclick="showTab('skillsPage'); return false;">Skills</a>
+      <a href="#" onclick="showTab('contactPage'); return false;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HOME -->
+  <div class="homePage page active" id="homePage">
+    <div class="homeDescription">
+
+      <div class="image-container" id="photo">
+        <!-- Replace with your image path -->
+        <img src="edit.jpg" alt="Elena Clorafel" id="profileImg">
+      </div>
+
+      <p class="greeting">Hello, I'm</p>
+      <h1 class="name">Elena Clorafel</h1>
+      <p class="role">a <span>Frontend Developer</span></p>
+
+      <div class="divider"></div>
+
+      <p class="bio">
+        An aspiring website developer currently focused on studying
+        web design and frontend development.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="aboutPage page" id="aboutPage">
+    <div class="aboutDescription">
+      <h1>About Me</h1>
+
+      <p>
+        Hi, I'm Elena, a second-year Bachelor of Science in Information
+        Technology (BSIT) student at the Polytechnic University of the
+        Philippines – Parañaque Campus.
+      </p>
+
+      <br>
+
+      <p>
+        I am currently developing my skills in frontend development and
+        exploring ways to create responsive, user-friendly, and visually
+        appealing websites.
+      </p>
+
+      <br>
+
+      <p>
+        I am passionate about combining creativity and technology to build
+        meaningful digital experiences. Aside from coding, I enjoy
+        photography and music, which help me enhance my creativity,
+        attention to detail, and ability to express ideas through
+        different forms of art.
+      </p>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="educationPage page" id="educationPage">
+    <div class="educationDescription">
+      <h1>Education</h1>
+
+      <h3>Polytechnic University of the Philippines – Parañaque Campus</h3>
+      <p>
+        Bachelor of Science in Information Technology (BSIT)
+      </p>
+      <p>2025 - Present</p>
+
+      <br>
+
+      <h3>Datamex College of Saint Adeline</h3>
+      <p>
+        Bachelor of Science in Information Technology (BSIT)
+      </p>
+      <p>2024 - 2025</p>
+
+      <br>
+
+      <h3>Parañaque National High School - Main</h3>
+      <p>
+        Science, Technology, Engineering and Mathematics (STEM)
+      </p>
+      <p>2020 - 2022</p>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="skillsPage page" id="skillsPage">
+    <div class="skillsDescription">
+      <h1>Skills</h1>
+
+      <h3>Frontend Development</h3>
+        <ul>
+          <li>Practicing HTML, CSS, and JavaScript to create interactive and responsive web interfaces</li>
+          <li>Learning UI/UX principles to improve user experience and website design</li>
+          <li>Developing skills in creating clean, organized, and visually appealing layouts</li>
+        </ul>
+
+        <br>
+    
+        <h3>Photography</h3>
+        <ul>
+          <li>Skilled in capturing and composing photos with attention to lighting, perspective, and visual storytelling</li>
+        </ul>
+
+        <br>
+
+        <h3>Music</h3>
+        <ul>
+          <li>Passionate about music and exploring creativity through sound and performance</li>
+          <li>Uses music as a way to develop focus, expression, and creative thinking</li>
+        </ul>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contactPage page" id="contactPage">
+    <div class="contactDescription">
+      <h1>Contact</h1>
+
+      <p>Email: elenaclorafel919@gmail.com</p>
+      <p>Phone: +63 995 252 3249</p>
+      <p>Location: San Isidro, Parañaque City, Philippines</p>
+
+      <br>
+      <br>
+
+      <h1>Social Media</h1>
+
+      <p>Facebook: Elena Clorafel</p>
+      <p>Instagram: @elnclrfl</p>
+      <p>Github: clrms</p>
+
+    </div>
+  </div>
+
+  <audio id="backgroundAudio" controls style="display: none;">
+    <source src="Natatanaw-tanaw - Instrumental Version.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Page navigation
+    function showTab(pageId) {
+      const pages = document.querySelectorAll(".page");
+
+      pages.forEach(page => {
+        page.classList.remove("active");
+      });
+
+      const selectedPage = document.getElementById(pageId);
+
+      if (selectedPage) {
+        selectedPage.classList.add("active");
+      }
+    }
+
+    // Show Home page when loaded
+    window.onload = () => {
+      showTab("homePage");
+    };
+
+     // Audio setup
+    const audio = document.getElementById("backgroundAudio");
+    
+    // Try to autoplay with user interaction
+    function playAudio() {
+      const playPromise = audio.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("Audio is playing");
+          })
+          .catch(error => {
+            console.log("Autoplay was prevented. User interaction may be required:", error);
+          });
+      }
+    }
+
+    // Show Home page when loaded
+    window.addEventListener("load", () => {
+      showTab("homePage");
+      playAudio();
+    });
+
+    // Also attempt to play on first user interaction
+    document.addEventListener("click", () => {
+      if (audio.paused) {
+        playAudio();
+      }
+    }, { once: true });
+
+  </script>
+
+</body>
+</html>
